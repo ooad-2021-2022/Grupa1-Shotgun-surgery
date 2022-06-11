@@ -10,7 +10,7 @@ namespace TuristickaAgencija.Models
         string poruka;
 
         public Notifikacija(User primalac, DateTime datum, string poruka)
-        {s
+        {       
             this.primalac = primalac;
             this.datum = datum;
             this.poruka = poruka;
