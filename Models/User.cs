@@ -38,7 +38,7 @@
             this.password = password;
         }
 
-        public void setPersonalInfo(string personalnfo)
+        public void setPersonalInfo(string personalInfo)
         {
             this.personalInfo = personalInfo;
         }
