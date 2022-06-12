@@ -10,6 +10,14 @@ namespace TuristickaAgencija.Models
         List<Ocjena> ocjene;
         double prosjecnaOcjena = 0;
 
+
+        public Usluga(decimal cijena, Tuple<DateTime,DateTime> periodOdDo)
+        {
+            this.cijena = cijena;
+            this.periodOdDo = periodOdDo;
+            
+        }  
+
         public void izracunajProsjek()
         {
             if (ocjene.Count == 0) return;

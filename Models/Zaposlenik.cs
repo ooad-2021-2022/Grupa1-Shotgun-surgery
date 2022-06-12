@@ -5,6 +5,7 @@ namespace TuristickaAgencija.Models
     {
         public Zaposlenik(string password, string personalInfo, string username) : base(password, personalInfo, username)
         {
+
         }
     }
 }
