@@ -19,19 +19,19 @@ namespace TuristickaAgencija.Models
             return usluge;
         }
 
-        public void setUslugeSmjestaja(List<UslugeSmjestaja> usluge)
+        public void SetUslugeSmjestaja(List<UslugaSmjestaja> usluge)
         {
             this.usluge = usluge;
 
         }
 
-        public void addUslugaSmjestaja(UslugaSmjestaja usluga)
+        public void AddUslugaSmjestaja(UslugaSmjestaja usluga)
         {
             usluge.Add(usluga);
         }
 
         
-        public void removeUslugaSmjestaja(UslugaSmjestaja usluga)
+        public void RemoveUslugaSmjestaja(UslugaSmjestaja usluga)
         {
             if (usluge.Contains(usluga).Equals(false))
             {
@@ -40,7 +40,7 @@ namespace TuristickaAgencija.Models
             usluge.Remove(usluga);
         }
 
-        public void removeUslugaSmjestaja(int index)
+        public void RemoveUslugaSmjestaja(int index)
         {
             if(index<0 || index >= usluge.Capacity)
             {
@@ -49,32 +49,32 @@ namespace TuristickaAgencija.Models
             usluge.RemoveAt(index);
         }
 
-        public List<Smjestaj> getSmjestaji()
+        public List<Smjestaj> GetSmjestaji()
         {
             return smjestaji;
         }
-        public void setSmejstaji(List<Smjestaj> smjestaji)
+        public void SetSmejstaji(List<Smjestaj> smjestaji)
         {
             this.smjestaji = smjestaji;
 
         }
 
-        public void addSmjestaj(Smjestaj smjestaj)
+        public void AddSmjestaj(Smjestaj smjestaj)
         {
             smjestaji.Add(smjestaj);
         }
 
 
-        public void removeSmjestaj(Smjestaj smjestaj)
+        public void RemoveSmjestaj(Smjestaj smjestaj)
         {
             if (smjestaji.Contains(smjestaj).Equals(false))
             {
                 throw new System.Exception("Ne postoji element u listi");
             }
-            smjestaji.Remove(usluga);
+            smjestaji.Remove(smjestaj);
         }
 
-        public void removeSmjestaj(int index)
+        public void RemoveSmjestaj(int index)
         {
             if (index < 0 || index >= smjestaji.Capacity)
             {

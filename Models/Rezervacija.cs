@@ -27,9 +27,9 @@ namespace TuristickaAgencija.Models
             this.usluge = usluge;
         }
 
-        public void izracunajCijenu()
+        public void IzracunajCijenu()
         {
-            foreach (Usluga usluga in usluge) cijena += usluga.getCijena();
+            foreach (Usluga usluga in usluge) cijena += usluga.GetCijena();
         }
 
         public void DodajUslugu(Usluga usluga)

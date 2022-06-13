@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 namespace TuristickaAgencija.Models
 {
@@ -8,7 +9,7 @@ namespace TuristickaAgencija.Models
         Pansion pansion;
         List<Image> slike;
 
-        public UslugaSmjestaja(decimal cijena, Tuple<DateTime, DateTime> periodOdDo,  Soba soba, Pansion pansion,List<Image> slike): base(decimal cijena, Tuple < DateTime, DateTime > periodOdDo, List < Ocjena > ocjene)
+        public UslugaSmjestaja(decimal cijena, Tuple<DateTime, DateTime> periodOdDo, List<Ocjena> ocjene, Soba soba, Pansion pansion,List<Image> slike): base(cijena, periodOdDo, ocjene)
         {
             this.soba = soba;
             this.pansion = pansion;
@@ -20,27 +21,27 @@ namespace TuristickaAgencija.Models
             return soba;
         }
 
-        public Pansion getPansion()
+        public Pansion GetPansion()
         {
             return pansion;
         }
 
-        public List<Image> getSlike()
+        public List<Image> GetSlike()
         {
             return slike;
         }
 
-        public void addSlika(Image slika)
+        public void AddSlika(Image slika)
         {
             slike.Add(slika);
         }
 
-        public void removeSlika(int index)
+        public void RemoveSlika(int index)
         {
             slike.RemoveAt(index);
         }
 
-        public removeSlika(Image slika)
+        public void RemoveSlika(Image slika)
         {
             slike.Remove(slika);
         }

@@ -1,4 +1,7 @@
-﻿namespace TuristickaAgencija.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace TuristickaAgencija.Models
 { 
     public class UslugaPrijevoza : Usluga
     {
@@ -6,7 +9,7 @@
         Vozilo vozilo;
         PutnaLinija putnaLinija;
 
-        public UslugaPrijevoza(decimal cijena, Tuple<DateTime, DateTime> periodOdDo, int brojSjedista, Vozilo vozilo, PutnaLinija putnaLinija):base(decimal cijena, Tuple < DateTime, DateTime > periodOdDo, List < Ocjena > ocjene)
+        public UslugaPrijevoza(decimal cijena, Tuple<DateTime, DateTime> periodOdDo, int brojSjedista, List<Ocjena> ocjene, Vozilo vozilo, PutnaLinija putnaLinija) : base(cijena, periodOdDo, ocjene)
         {
             this.brojSjedista = brojSjedista;
             this.vozilo = vozilo;
@@ -23,7 +26,7 @@
             return vozilo;
         }
 
-        public Vozilo getPutnaLinija()
+        public PutnaLinija getPutnaLinija()
         {
             return putnaLinija;
         }

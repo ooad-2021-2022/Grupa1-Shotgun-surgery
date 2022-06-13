@@ -17,17 +17,17 @@ namespace TuristickaAgencija.Models
             this.datum = datum;
         }
 
-        public List<User> getKorisnici()
+        public List<User> GetKorisnici()
         {
             return korisnici;
         }
 
-        public string getObrazlozenje()
+        public string GetObrazlozenje()
         {
             return obrazlozenje;
         }
 
-        public DateTime getDatum()
+        public DateTime GetDatum()
         {
             return datum;
         }

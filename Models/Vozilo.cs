@@ -12,23 +12,24 @@ namespace TuristickaAgencija.Models
             this.sjedista = sjedista;
         }
 
-        public TipVozila getTipVozila()
+        public TipVozila GetTipVozila()
         {
             return tipVozila;
         }
 
-        public Dictionary<int, bool> getSjedista()
+        public Dictionary<int, bool> GetSjedista()
         {
             return sjedista;
         }
 
-        public bool isSjedisteZauzeto(int redniBrojSjedista)
+        public bool IsSjedisteZauzeto(int redniBrojSjedista)
         {
-            if (sjedista[redniBrojSjedista].Equals(false))
+            return sjedista[redniBrojSjedista].Equals(false);
+            /*if (sjedista[redniBrojSjedista].Equals(false))
             {
                 return false;
             }
-            return true;
+            return true;*/
         }
         
     }

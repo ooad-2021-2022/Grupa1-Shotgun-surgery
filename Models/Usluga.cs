@@ -5,17 +5,17 @@ namespace TuristickaAgencija.Models
 {
     public class Usluga
     {
-        decimal cijena;
-        Tuple<DateTime, DateTime> periodOdDo;
-        List<Ocjena> ocjene;
-        double prosjecnaOcjena = 0;
+        protected decimal cijena;
+        protected Tuple<DateTime, DateTime> periodOdDo;
+        protected List<Ocjena> ocjene = new List<Ocjena>();
+        protected double prosjecnaOcjena = 0;
 
 
-        public Usluga(decimal cijena, Tuple<DateTime,DateTime> periodOdDo)
+        public Usluga(decimal cijena, Tuple<DateTime,DateTime> periodOdDo, List<Ocjena> ocjene)
         {
             this.cijena = cijena;
             this.periodOdDo = periodOdDo;
-            
+            this.ocjene = ocjene;
         }  
 
         public void izracunajProsjek()
