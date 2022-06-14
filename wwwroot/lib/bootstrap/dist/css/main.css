@@ -1,0 +1,10 @@
+﻿body {
+    font-family: sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}

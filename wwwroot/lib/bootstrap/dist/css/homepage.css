@@ -1,0 +1,94 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px;
+    background: #eee;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo img {
+    width: 100px;
+}
+
+.text {
+    text-align: center;
+}
+
+.prijava button {
+    background: #b2cae4;
+    padding: 10px 30px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    display: block;
+    width: 200px;
+    border: 0;
+}
+
+.banner {
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    padding: 20px 50px;
+    background: #e2ddeb;
+    margin: 80px 0;
+}
+
+.item {
+    text-align: center;
+    margin-right: 50px;
+}
+
+    .item img {
+        display: block;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+.smestaj {
+    background: #e2ddeb;
+}
+
+    .smestaj p {
+        text-align: center;
+        margin: 10px;
+    }
+
+    .smestaj .kolona {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+        .smestaj .kolona button {
+            background: #f3f3f3;
+            padding: 10px 50px;
+            margin-bottom: 10px;
+            font-size: 17px;
+            border: none;
+        }
+
+.prijevoznici {
+    background: #e2ddeb;
+    padding: 10px 0 100px 0;
+    margin: 20px 0;
+}
+
+
+    .prijevoznici p {
+        text-align: center;
+    }
+
+
+.kontakti {
+    background: #ddd;
+    padding: 10px 100px 80px 100px;
+}

@@ -2,7 +2,65 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">    
-    <h1 class="display-4">Welcome</h1>     
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> 
-</div> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocetna stranica</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/homepage.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <img src="Home/logo.png" alt="">
+            </div>
+            <div class="text">
+                <h3>Turisticka agencija</h3>
+                <h2>Shoot Destination</h2>
+            </div>
+            <div class="prijava">
+                <button>Prijava</button>
+                <button>Registracija</button>
+            </div>
+        </header>
+        <div class="banner">
+            <div class="item">
+                <img src="https://picsum.photos/200/200" alt="">
+                <p>Izaberite destinaciju</p>
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/200/200" alt="">
+                <p>Rezervisite svoje mjesto na vrijeme</p>
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/200/200" alt="">
+                <p>Ocijenite nas</p>
+            </div>
+        </div>
+
+        <div class="smestaj">
+            <div>
+                <p>Smijestaji</p>
+            </div>
+            <div class="kolona">
+                <button>Hoteli</button>
+                <button>Apartmani</button>
+                <button>Kampovi</button>
+            </div>
+        </div>
+
+        <div class="prijevoznici">
+            <p>Prejevoznici</p>
+        </div>
+
+        <div class="kontakti">
+            <p>Kontakti</p>
+        </div>
+
+    </div>
+</body>
+</html> 
