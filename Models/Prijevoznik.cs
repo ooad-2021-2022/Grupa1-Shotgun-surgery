@@ -1,28 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Web.Providers.Entities;
 
 namespace TuristickaAgencija.Models
 {
     public class Prijevoznik : User
     {
-        List<UslugaPrijevoza> usluge;
-        List<PutnaLinija> putneLinije;
+        [Key]
+        public int ID { get; set; }
+       // List<UslugaPrijevoza> usluge { get; set; }
+       // List<PutnaLinija> putneLinije { get; set; }
 
-        public Prijevoznik(string password, string personalInfo, string username, List<UslugaPrijevoza> usluge,
-            List<PutnaLinija> putneLinije) : base(password, personalInfo, username)
+        public Prijevoznik(string password, string personalInfo, string username 
+            ) : base(password, personalInfo, username)
         {
-            this.usluge = usluge;
-            this.putneLinije = putneLinije;
+           
         }
 
-        public List<UslugaPrijevoza> GetUsluge()
+        public int GenerišiID()
         {
-            return usluge;
+            int id = 0;
+            Random generator = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                id += (int)Math.Pow(10, i) * generator.Next(0, 9);
+            }
+            return id;
         }
 
-        public List<PutnaLinija> GetPutneLinije()
-        {
-            return putneLinije;
-        }
+        public Prijevoznik() { }
+
+
     }
 }

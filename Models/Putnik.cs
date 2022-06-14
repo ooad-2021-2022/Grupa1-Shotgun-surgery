@@ -1,11 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace TuristickaAgencija.Models
 {
     public class Putnik : User
     {
-        List<Rezervacija> rezervacije;
-        List<Usluga> usluge;
-        PosebnaKategorija posebnaKategorija;
+
+       [Key]
+        public int ID { get; set; }
+        List<Rezervacija> rezervacije { get; set; }
+        List<Usluga> usluge { get; set; }
+        PosebnaKategorija posebnaKategorija { get; set; }
 
         public Putnik(List<Rezervacija> rezervacije, List<Usluga> usluge, string password, string personalInfo, 
             string username, PosebnaKategorija posebnaKategorija) : base(password, personalInfo, username)
@@ -15,27 +21,10 @@ namespace TuristickaAgencija.Models
             this.posebnaKategorija = posebnaKategorija;
         }
 
-        public List<Rezervacija> GetRezervacije()
-        {
-            return rezervacije;
-        }
+        public Putnik() { }
 
-        public List<Usluga> GetUsluge()
-        {
-            return usluge;
-        }
-
-        public PosebnaKategorija GetPosebnaKategorija()
-        {
-            return posebnaKategorija;
-        }
-
-        public void SetPosebnaKategorija(PosebnaKategorija posebnaKategorija)
-        {
-            this.posebnaKategorija = posebnaKategorija;
-        }
-
-        public void DodajRezervaciju(Rezervacija rezervacija)
+        
+       /* public void DodajRezervaciju(Rezervacija rezervacija)
         {
             rezervacije.Add(rezervacija);
         }
@@ -48,6 +37,19 @@ namespace TuristickaAgencija.Models
         public void DodajUslugu(Usluga usluga)
         {
             usluge.Add(usluga);
+        }*/
+
+        public int GenerišiID()
+        {
+            int id = 0;
+            Random generator = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                id += (int)Math.Pow(10, i) * generator.Next(0, 9);
+            }
+            return id;
         }
+
+        
     }
 }

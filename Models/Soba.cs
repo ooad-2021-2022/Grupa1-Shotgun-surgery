@@ -1,10 +1,17 @@
-﻿namespace TuristickaAgencija.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TuristickaAgencija.Models
 {
     public class Soba
     {
-        int kapacitet;
-        bool klima;
-        bool wifi;
+        [Key]
+        int Id { get; set; }
+        [ForeignKey("Smjestaj")]
+        int SmjestajId { get; set; }
+        int kapacitet { get; set; }
+        bool klima { get; set; }
+        bool wifi { get; set; }
 
         public Soba(int kapacitet, bool klima, bool wifi)
         {
@@ -13,29 +20,8 @@
             this.wifi = wifi;
         }
 
-        public int GetKapacitet()
+        public Soba()
         {
-            return kapacitet;
-        }
-
-        public bool HasKlima()
-        {
-            return klima;
-        }
-
-        public bool HasWifi()
-        {
-            return wifi;
-        }
-
-        public void SetWifi(bool wifi)
-        {
-            this.wifi = wifi;
-        }
-
-        public void SetKlima(bool klima)
-        {
-            this.klima = klima;
         }
     }
 }

@@ -1,28 +1,29 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TuristickaAgencija.Models
 {
     public class Smjestaj
     {
-        TipSmjestaja tipSmjestaja;
-        Lokacija lokacija;
-        Dictionary<int, Soba> sobe;
+        [Key]
+        int Id { get; set; }
+        [ForeignKey("VlasnikSmjestaja")]
+        int VlasnikSmjestajaId { get; set; }
+        int TipSmjestaja{ get; set; }
 
-        public Smjestaj(TipSmjestaja tipSmjestaja, Lokacija lokacija, Dictionary<int, Soba> sobe)
+        [ForeignKey("Lokacija")]
+        int LokacijaId { get; set; }
+
+       // Dictionary<int, Soba> sobe;
+
+        public Smjestaj(int tipSmjestaja)
         {
-            this.tipSmjestaja = tipSmjestaja;
-            this.lokacija = lokacija;
-            this.sobe = sobe;
+            this.TipSmjestaja = tipSmjestaja;
         }
 
-        public TipSmjestaja GetTipSmjestaja()
+        public Smjestaj()
         {
-            return tipSmjestaja;
-        }
-
-        public Lokacija GetLokacija()
-        {
-            return lokacija;
         }
     }
 }

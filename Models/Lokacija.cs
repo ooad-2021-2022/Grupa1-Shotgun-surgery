@@ -1,14 +1,19 @@
-﻿namespace TuristickaAgencija.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace TuristickaAgencija.Models
 {
     public class Lokacija
     {
-        double geografskaSirina;
-        double geografskaDuzina;
-        double geografskaVisina;
-        string linkNaKartu;
-        string drzava;
-        string grad;
-        string adresa;
+        [Key]
+        public int ID { get; set; }
+        double geografskaSirina { get; set; }
+        double geografskaDuzina { get; set; }
+        double geografskaVisina { get; set; }
+        string linkNaKartu { get; set; }
+        string drzava { get; set; }
+        string grad { get; set; }
+        string adresa { get; set; }
 
         public Lokacija(double geografskaSirina, double geografskaDuzina, double geografskaVisina)
         {
@@ -24,80 +29,23 @@
             this.geografskaDuzina = geografskaDuzina;
             this.geografskaVisina = geografskaVisina;
             this.linkNaKartu = linkNaKartu;
-            this.drzava = drzava;  
-            this.grad = grad;
-            this.adresa = adresa;
-        }
-        
-        public double GetGeografskaSirina()
-        {
-            return geografskaSirina;
-        }
-
-        public double GetGeografskaDuzina()
-        {
-            return geografskaDuzina;
-        }
-
-        public double GetGeografskaVisina()
-        {
-            return geografskaVisina;
-        }
-
-        public string GetLinkNaKartu()
-        {
-            return linkNaKartu;
-        }
-
-        public string GetDrzava()
-        {
-            return drzava;
-        }
-
-        public string GetGrad()
-        {
-            return grad;
-        }
-
-        public string GetAdresa()
-        {
-            return adresa;
-        }
-
-        public void SetGeografskaSirina(double geografskaSirina)
-        {
-            this.geografskaSirina = geografskaSirina;
-        }
-
-        public void SetGeografskaDuzina(double geografskaDuzina)
-        {
-            this.geografskaDuzina = geografskaDuzina;
-        }
-
-        public void SetGeografskaVisina(double geografskaVisina)
-        {
-            this.geografskaVisina = geografskaVisina;
-        }
-
-        public void SetLinkNaKartu(string linkNaKartu)
-        {
-            this.linkNaKartu = linkNaKartu;
-        }
-
-        public void SetDrzava(string drzava)
-        {
             this.drzava = drzava;
-        }
-
-        public void SetGrad(string grad)
-        {
             this.grad = grad;
-        }
-
-        public void SetAdresa(string adresa)
-        {
             this.adresa = adresa;
         }
+        public int GenerišiID()
+        {
+            int id = 0;
+            Random generator = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                id += (int)Math.Pow(10, i) * generator.Next(0, 9);
+            }
+            return id;
+        }
+
+        public Lokacija() { }
+
     }
 
 

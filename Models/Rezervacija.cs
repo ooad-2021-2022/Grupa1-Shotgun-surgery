@@ -1,33 +1,26 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TuristickaAgencija.Models
 {
     public class Rezervacija
     {
-        List<Usluga> usluge;
-        decimal cijena = 0;
+        [Key]
+        public int Id { get; set; }
+        //List<Usluga> usluge;
 
-        public Rezervacija(List<Usluga> usluge)
-        {
-            this.usluge = usluge;
-        }
+        [ForeignKey("Putnik")]
+        public int PutnikId { get; set; }
+        decimal cijena { get; set; } = 0;
 
-        public List<Usluga> GetUsluge()
-        {
-            return usluge;
-        }
+        public Rezervacija() { }      
+        
 
-        public decimal GetCijena()
-        {
-            return cijena;
-        }
 
-        public void SetUsluge(List<Usluga> usluge)
-        {
-            this.usluge = usluge;
-        }
+       
 
-        public void IzracunajCijenu()
+        /*public void IzracunajCijenu()
         {
             foreach (Usluga usluga in usluge) cijena += usluga.GetCijena();
         }
@@ -40,6 +33,6 @@ namespace TuristickaAgencija.Models
         public void UkloniUslugu(Usluga usluga)
         {
             usluge.Remove(usluga);
-        }
+        }*/
     }
 }

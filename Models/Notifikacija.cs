@@ -1,34 +1,39 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Providers.Entities;
 
 namespace TuristickaAgencija.Models
 {
     public class Notifikacija
     {
-        User primalac;
-        DateTime datum;
-        string poruka;
+        [Key]
+        public int ID { get; set; }
 
-        public Notifikacija(User primalac, DateTime datum, string poruka)
+        [ForeignKey("User")]
+        public int primalacID { get; set; }
+        DateTime datum { get; set; }
+        string poruka { get; set; }
+
+        public Notifikacija(int primalacID, DateTime datum, string poruka)
         {       
-            this.primalac = primalac;
+            this.primalacID = primalacID;
             this.datum = datum;
             this.poruka = poruka;
         }
-
-        public User getPrimalac()
+        public int GenerišiID()
         {
-            return primalac;
+            int id = 0;
+            Random generator = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                id += (int)Math.Pow(10, i) * generator.Next(0, 9);
+            }
+            return id;
         }
 
-        public DateTime getDatum()
-        {
-            return datum;
-        }
+        public Notifikacija() { }
 
-        public string getPoruka()
-        {
-            return poruka;
-        }
+
     }
 }
