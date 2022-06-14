@@ -1,23 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Providers.Entities;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TuristickaAgencija.Models
 {
     public class ZahtjevZaBrisanjem
     {
-        List<User> korisnici;
-        string obrazlozenje;
-        DateTime datum;
+        [Key]
+        public int Id { get; set; }
+        public string Obrazlozenje { get; set; }
+        public DateTime Datum { get; set; }
+        [ForeignKey("Administrator")]
+        public int Administrator { get; set; }
 
-        public ZahtjevZaBrisanjem(List<User> korisnici, string obrazlozenje, DateTime datum)
+        public ZahtjevZaBrisanjem(string obrazlozenje, DateTime datum)
         {
-            this.korisnici = korisnici;
-            this.obrazlozenje = obrazlozenje;
-            this.datum = datum;
+            this.Obrazlozenje = obrazlozenje;
+            this.Datum = datum;
+        }
+        public ZahtjevZaBrisanjem()
+        {
         }
 
-        public List<User> GetKorisnici()
+        /*public List<User> GetKorisnici()
         {
             return korisnici;
         }
@@ -30,6 +37,6 @@ namespace TuristickaAgencija.Models
         public DateTime GetDatum()
         {
             return datum;
-        }
+        }*/
     }
 }

@@ -1,19 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Web.Providers.Entities;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TuristickaAgencija.Models
 {
     public class VlasnikSmjestaja : User
     {
-        List<UslugaSmjestaja> usluge;
-        List<Smjestaj> smjestaji;
+        [Key]
+        public int Id { get; set; }
+        [ForeignKey("User")]
+        public int User { get; set; }
+        
 
-        public VlasnikSmjestaja(string password, string personalInfo, string username, List<UslugaSmjestaja> usluge,List<Smjestaj> smjestaji) : base(password, personalInfo, username)
+        public VlasnikSmjestaja(string password, string personalInfo, string username) : base(password, personalInfo, username)
         {
-            this.usluge = usluge;
-            this.smjestaji = smjestaji;
         }
 
+        public VlasnikSmjestaja()
+        {
+        }
+
+        /*
         public List<UslugaSmjestaja> getUsluge()
         {
             return usluge;
@@ -82,6 +90,6 @@ namespace TuristickaAgencija.Models
             }
             smjestaji.RemoveAt(index);
         }
-
+        */
     }
 }

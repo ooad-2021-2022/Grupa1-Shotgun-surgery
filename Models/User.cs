@@ -1,16 +1,27 @@
-﻿namespace TuristickaAgencija.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TuristickaAgencija.Models
 {
     public class User
     {
-        protected string username;
-        protected string password;
-        protected string personalInfo;
+        [Key]
+        public int ID { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string personalInfo { get; set; }
+        [ForeignKey("ZahtjevZaBrisanjem")]
+        public int zahtjevZaBrisanjem { get; set; }
 
         public User(string password, string personalInfo, string username)
         {
             this.password = password;
             this.personalInfo = personalInfo;
             this.username = username;
+        }
+
+        public User()
+        {
         }
 
         public string getUsername()

@@ -1,22 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace TuristickaAgencija.Models
 {
     public class UslugaSmjestaja : Usluga
     {
-        Soba soba;
-        Pansion pansion;
-        List<Image> slike;
+        [Key]
+        public int Id { get; set; }
+        public int Pansion { get; set; }
+        [ForeignKey("VlasnikSmjestaja")]
+        public int VlasnikSmjestaja { get; set; }
+        [ForeignKey("Soba")]
+        public int Soba { get; set; }
+        [ForeignKey("Usluga")]
+        public int Usluga { get; set; }
+        //List<Image> slike;
 
-        public UslugaSmjestaja(decimal cijena, Tuple<DateTime, DateTime> periodOdDo, List<Ocjena> ocjene, Soba soba, Pansion pansion,List<Image> slike): base(cijena, periodOdDo, ocjene)
+        public UslugaSmjestaja(decimal cijena, Tuple<DateTime, DateTime> periodOdDo, int soba, int pansion): base(cijena, periodOdDo)
         {
-            this.soba = soba;
-            this.pansion = pansion;
-            this.slike = slike;
+            this.Soba = soba;
+            this.Pansion = pansion;
         }
 
-        public Soba getSoba()
+        public UslugaSmjestaja()
+        {
+        }
+
+
+
+        /*public Soba getSoba()
         {
             return soba;
         }
@@ -44,7 +58,7 @@ namespace TuristickaAgencija.Models
         public void RemoveSlika(Image slika)
         {
             slike.Remove(slika);
-        }
-            
+        }*/
+
     }
 }

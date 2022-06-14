@@ -1,53 +1,65 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 
 namespace TuristickaAgencija.Models
 {
     public class Usluga
     {
-        protected decimal cijena;
-        protected Tuple<DateTime, DateTime> periodOdDo;
-        protected List<Ocjena> ocjene = new List<Ocjena>();
-        protected double prosjecnaOcjena = 0;
+        [Key]
+        public int id { get; set; }
+        public decimal cijena { get; set; }
+        public DateTime pocetak { get; set; }
+
+        public DateTime kraj { get; set; }
+        //protected List<Ocjena> ocjene = new List<Ocjena>();
+        public double prosjecnaOcjena { get; set; }
 
 
-        public Usluga(decimal cijena, Tuple<DateTime,DateTime> periodOdDo, List<Ocjena> ocjene)
+        public Usluga(decimal cijena, Tuple<DateTime,DateTime> periodOdDo)
         {
             this.cijena = cijena;
-            this.periodOdDo = periodOdDo;
-            this.ocjene = ocjene;
-        }  
+            this.pocetak = periodOdDo.Item1;
+            this.kraj = periodOdDo.Item2;
+            //this.ocjene = ocjene;
+        }
 
-        public void izracunajProsjek()
+        public Usluga()
+        {
+        }
+
+        /*public void IzracunajProsjek()
         {
             if (ocjene.Count == 0) return;
             foreach (Ocjena ocjena in ocjene) prosjecnaOcjena += ocjena.getBrojZvjezdica();
             prosjecnaOcjena /= ocjene.Count;
-        }
+        }*/
 
-        public double GetProsjecnaOcjena()
-        {
-            return prosjecnaOcjena;
-        }
+        /* public double GetProsjecnaOcjena()
+         {
+             return prosjecnaOcjena;
+         }*/
 
         public Tuple<DateTime, DateTime> GetPeriodOdDo()
         {
-            return periodOdDo;
-        }
-
-        public void SetPeriodOdDo(Tuple<DateTime, DateTime> periodOdDo)
-        {
-            this.periodOdDo = periodOdDo;
+            return new Tuple<DateTime, DateTime>(pocetak, kraj);
         }
 
         public void PromijeniDo(DateTime datumDo)
         {
-            periodOdDo = new Tuple<DateTime, DateTime>(periodOdDo.Item1, datumDo);
+            kraj = datumDo;
         }
 
         public void PromijeniOd(DateTime datumOd)
         {
-            periodOdDo = new Tuple<DateTime, DateTime>(datumOd, periodOdDo.Item1);
+            pocetak = datumOd;
+        }
+
+        public void SetPeriodOdDo(Tuple<DateTime, DateTime> periodOdDo)
+        {
+            PromijeniDo(periodOdDo.Item2);
+            PromijeniOd(periodOdDo.Item1);
         }
 
         public decimal GetCijena()
@@ -55,24 +67,24 @@ namespace TuristickaAgencija.Models
             return cijena;
         }
 
-        public List<Ocjena> GetOcjene()
+       /* public List<Ocjena> GetOcjene()
         {
             return ocjene;
-        }
+        }*/
 
         public void setCijena(decimal cijena)
         {
             this.cijena = cijena;
         }
 
-        public void DodajOcjenu(Ocjena ocjena)
+        /*public void DodajOcjenu(Ocjena ocjena)
         {
             ocjene.Add(ocjena);
-        }
+        }*/
 
-        public void ObrisiOcjenu(Ocjena ocjena)
+       /* public void ObrisiOcjenu(Ocjena ocjena)
         {
             ocjene.Remove(ocjena);
-        }
+        }*/
     }
 }
