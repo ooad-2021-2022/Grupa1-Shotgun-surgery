@@ -34,6 +34,11 @@ namespace TuristickaAgencija.Data
         public DbSet<Vozilo> Vozilo { get; set; }
         public DbSet<ZahtjevZaBrisanjem> ZahtjevZaBrisanjem{ get; set; }
         public DbSet<Zaposlenik> Zaposlenik { get; set; }
+        public DbSet<Putnik_Usluga> Putnik_Usluga { get; set; }
+        public DbSet<Rezervacija_Usluga> Rezervacija_Usluga { get; set; }
+        public DbSet<Slika> Slika { get; set; }
+        public DbSet<PutnaLinija_Lokacija> PutnaLinija_Lokacija { get; set; }
+        public DbSet<Sjediste> Sjediste { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -56,6 +61,12 @@ namespace TuristickaAgencija.Data
             modelBuilder.Entity<Vozilo>().ToTable("Vozilo");
             modelBuilder.Entity<ZahtjevZaBrisanjem>().ToTable("ZahtjevZaBrisanjem");
             modelBuilder.Entity<Zaposlenik>().ToTable("Zaposlenik");
+
+            modelBuilder.Entity<Putnik_Usluga>().ToTable("Putnik_Usluga");
+            modelBuilder.Entity<Rezervacija_Usluga>().ToTable("Rezervacija_Usluga");
+            modelBuilder.Entity<Slika>().ToTable("Slika");
+            modelBuilder.Entity<PutnaLinija_Lokacija>().ToTable("PutnaLinija_Lokacija");
+            modelBuilder.Entity<Sjediste>().ToTable("Sjediste");
             base.OnModelCreating(modelBuilder);
         }
 
